@@ -35,7 +35,7 @@ public class CategoryController extends BaseController {
 
     @GetMapping("/add")
     @PageTitle("Add Category")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView addCategory(@ModelAttribute(name = MODEL) CategoryAddBindingModel categoryAddBindingModel,
                                     ModelAndView modelAndView) {
 
@@ -43,7 +43,7 @@ public class CategoryController extends BaseController {
     }
 
     @PostMapping("/add")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView addCategoryConfirm(@Valid @ModelAttribute(name = MODEL) CategoryAddBindingModel model,
                                            BindingResult bindingResult, ModelAndView modelAndView) {
 
@@ -59,7 +59,7 @@ public class CategoryController extends BaseController {
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PageTitle(CATEGORIES)
     public ModelAndView allCategories(ModelAndView modelAndView) {
 
@@ -72,7 +72,7 @@ public class CategoryController extends BaseController {
     }
 
     @GetMapping("/edit/{id}")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PageTitle("Edit Category")
     public ModelAndView editCategory(@PathVariable String id, ModelAndView modelAndView) {
 
@@ -85,7 +85,7 @@ public class CategoryController extends BaseController {
     }
 
     @PostMapping("/edit/{id}")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView editCategoryConfirm(@PathVariable String id, @Valid @ModelAttribute(name = "model") CategoryAddBindingModel model,
                                             BindingResult bindingResult, ModelAndView modelAndView) {
 
@@ -104,7 +104,7 @@ public class CategoryController extends BaseController {
     }
 
     @GetMapping("/delete/{id}")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PageTitle("Delete Category")
     public ModelAndView deleteCategory(@PathVariable String id, ModelAndView modelAndView) {
 
@@ -117,7 +117,7 @@ public class CategoryController extends BaseController {
     }
 
     @PostMapping("/delete/{id}")
-    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView deleteCategoryConfirm(@PathVariable String id) {
 
         categoryService.deleteCategory(id);
