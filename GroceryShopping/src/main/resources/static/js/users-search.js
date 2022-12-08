@@ -4,7 +4,7 @@ const findUserByUsername = () => {
     if (username.trim() === '') {
         let $tbody = $('.table tbody').empty();
 
-        fetch('http://localhost:8000/api/users')
+        fetch('http://localhost:8080/api/users')
             .then(res => res.json())
             .then(res => res.forEach((user) => {
                 $tbody.append($('<tr>')
@@ -22,7 +22,7 @@ const findUserByUsername = () => {
 
         $('input#inputUsername').val('');
 
-        fetch('http://localhost:8000/api/users/find?username=' + username)
+        fetch('http://localhost:8080/api/users/find?username=' + username)
             .then(res => res.json())
             .then(user => {
                 let $tbody = $('.table tbody').empty();
