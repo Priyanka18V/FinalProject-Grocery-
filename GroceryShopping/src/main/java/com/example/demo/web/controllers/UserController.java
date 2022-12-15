@@ -136,7 +136,7 @@ public class UserController extends BaseController {
                 : this.modelMapper.map(byUsername, UsersViewModel.class);
     }
 
-    @SuppressWarnings("unused")
+   
 	private String htmlEscape(String input){
         input = input.replaceAll("&", "&amp;")
               .replaceAll("<", "&lt;")
